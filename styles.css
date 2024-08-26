@@ -1,0 +1,281 @@
+/* Font Family */
+@font-face {
+ font-family: "Keshiki";
+ src: url("font-family/Keshiki/Sdasian-WyDon.ttf");
+}
+@font-face {
+ font-family: "sd-asian";
+ src: url("font-family/SD-Asian/Sdasian-WyDon.ttf");
+}
+@font-face {
+ font-family: "Poppins";
+ src: url("font-family/Poppins/Poppins-Medium.ttf");
+}
+
+*,
+::before,
+::after {
+ margin: 0;
+ padding: 0;
+ transition: 0.3s;
+ box-sizing: border-box;
+ color: #fff;
+}
+
+/* Resetting some default browser styling */
+*,
+::before,
+::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+/* Video styling for responsiveness */
+video {
+ position: fixed; /* Use fixed to make sure the video covers the viewport */
+ top: 50%; /* Center vertically */
+ left: 50%; /* Center horizontally */
+ width: 100%; /* Full width */
+ height: 100%; /* Full height */
+ object-fit: cover; /* Ensures the video covers the entire area */
+ transform: translate(
+  -50%,
+  -50%
+ ); /* Centers the video */
+ z-index: -1; /* Puts video behind content */
+ pointer-events: none; /* Prevents the video from being interactive */
+}
+
+/* Additional styling for body to prevent scrolling */
+body {
+ overflow: hidden; /* Prevents scrolling, useful for full-page backgrounds */
+}
+
+.container {
+ max-width: 95%;
+ width: 100%;
+ margin: auto;
+ padding: 0 20px;
+}
+
+.navbar {
+ padding: 12px 10px;
+}
+
+.navbar .container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+}
+
+.navbar .logo {
+ font-family: "sd-asian";
+ text-decoration: none;
+ font-size: 2rem;
+ flex: 1;
+}
+
+.navbar ul {
+ list-style-type: none;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ padding: 10px 0;
+ margin-top: 12px;
+}
+
+.navbar ul a {
+ display: block;
+ text-decoration: none;
+ margin: 0 10px;
+ padding: 8px 16px;
+ font-family: "Keshiki";
+ position: relative;
+ color: black;
+ font-size: 25px;
+ font-style:oblique;
+}
+
+.navbar ul:has(a:hover) a:not(:hover) {
+ filter: blur(10px);
+}
+
+.page-content {
+ text-align: center;
+ margin-top: 12rem;
+ padding: 0 10px;
+}
+
+.page-content .inner-content .heading {
+ font-size: 8vw; /* Use vw for responsiveness */
+ font-family: "sd-asian";
+ color: black;
+}
+
+.page-content .inner-content p {
+ font-family: "Poppins", sans-serif;
+ font-size: 1.2rem; /* Adjust font size for readability */
+ color: black;
+}
+
+.page-content .buttons {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+ margin-top: 20px;
+}
+
+.page-content .buttons a {
+ display: block;
+ font-family: "Poppins", sans-serif;
+ text-decoration: none;
+ margin: 10px;
+ padding: 10px 12px;
+ border-radius: 6px;
+ font-size: 1rem;
+ min-width: 120px;
+ text-align: center;
+ position: relative;
+ backdrop-filter: blur(60px);
+ overflow: hidden;
+ z-index: 1;
+ border: 1px solid #ffffff1e;
+}
+
+.page-content .buttons a.active {
+ background-color: #e1340d;
+}
+
+.page-content .buttons a.active:hover {
+ box-shadow: 0 0 40px rgb(253, 2, 2);
+}
+
+.page-content
+ .buttons
+ a:nth-child(2)::before {
+ content: "";
+ position: absolute;
+ left: -100%;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(
+  40deg,
+  #ffffff00,
+  #ffffff20,
+  #ffffff00
+ );
+ z-index: -1;
+}
+
+.page-content
+ .buttons
+ a:nth-child(2):hover::before {
+ left: 100%;
+}
+
+.page-content
+ .buttons
+ a:nth-child(2):hover {
+ transition-delay: 0.3s;
+ box-shadow: 0 0 40px rgb(238, 5, 5);
+ background-color: #ff310c;
+}
+
+.page-content .social-links {
+ margin-top: 2rem;
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap; /* Allow social links to wrap */
+}
+
+.page-content .social-links a {
+ display: block;
+ height: 40px;
+ width: 40px;
+ margin: 10px;
+ border-radius: 99px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-decoration: none;
+ backdrop-filter: blur(160px);
+ background: #c624f71e;
+ overflow: hidden;
+ position: relative;
+ z-index: 1;
+}
+
+.page-content .social-links a::after {
+ content: "";
+ position: absolute;
+ left: 0;
+ bottom: 0;
+ width: 100%;
+ height: 0%;
+ background: #f15405;
+ z-index: -1;
+}
+
+.page-content
+ .social-links
+ a:hover::after {
+ height: 100%;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+ .navbar .container {
+  flex-direction: column; /* Stack navbar items vertically */
+ }
+
+ .navbar ul {
+  padding: 0;
+  flex-direction: column; /* Stack menu items vertically */
+ }
+
+ .page-content {
+  margin-top: 8rem; /* Reduce margin on smaller screens */
+ }
+
+ .page-content .inner-content .heading {
+  font-size: 10vw; /* Adjust heading size */
+ }
+
+ .page-content .inner-content p {
+  font-size: 1rem; /* Adjust paragraph size */
+ }
+
+ .page-content .buttons a {
+  padding: 8px 10px;
+  font-size: 0.9rem; /* Adjust button text size */
+  min-width: 100px; /* Reduce min width on smaller screens */
+ }
+
+ .page-content .social-links a {
+  height: 35px;
+  width: 35px; /* Reduce size of social icons */
+ }
+}
+
+@media (max-width: 480px) {
+ .navbar .logo {
+  font-size: 1.5rem; /* Adjust logo size */
+ }
+
+ .page-content {
+  margin-top: 6rem; /* Further reduce margin on extra small screens */
+ }
+
+ .page-content .buttons a {
+  padding: 6px 8px;
+  font-size: 0.8rem; /* Further adjust button text size */
+ }
+
+ .page-content .social-links a {
+  height: 30px;
+  width: 30px; /* Further reduce size of social icons */
+ }
+}
