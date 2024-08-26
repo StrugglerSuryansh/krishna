@@ -95,7 +95,6 @@ body {
  position: relative;
  color: black;
  font-size: 25px;
- font-style:oblique;
 }
 
 .navbar ul:has(a:hover) a:not(:hover) {
